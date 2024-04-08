@@ -1,0 +1,20 @@
+{
+  "name": "projeto-worldpackers",
+  "version": "1.0.0",
+  "description": "Projeto - Desenvolvimento de Páginas Web com Framework e CSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milenahamerski/projeto-worldpackers.git"
+  },
+  "keywords": [],
+  "author": "Milena Hamerski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milenahamerski/projeto-worldpackers/issues"
+  },
+  "homepage": "https://github.com/milenahamerski/projeto-worldpackers#readme"
+}
