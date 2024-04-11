@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Seashellter</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              blue: {
+                100: "#01585D",
+                200: "#027F86",
+              },
+              gray: "#D8D0C5",
+              "ocre-light": "#D6B670",
+            },
+            fontFamily: {
+              oswald: ["Oswald", "sans-serif"],
+              montserrat: ["Montserrat", "sans-serif"],
+            },
+            backgroundImage: {
+              sea: "url('img/sea.jpg')",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div class="bg-sea bg-no-repeat bg-cover bg-top h-screen">
+      <header>
+        <nav
+          class="p-3 bg-white shadow md:flex md:items-center md:justify-between"
+        >
+          <ul class="md:flex md:items-center">
+            <li>
+              <a class="hover:text-ocre-light" href="#">PT</a>
+            </li>
+            <li>
+              <a class="hover:text-ocre-light" href="#">Ajuda</a>
+            </li>
+            <li>
+              <a class="hover:text-ocre-light" href="#">Como Funciona</a>
+            </li>
+            <li>
+              <a class="hover:text-ocre-light" href="#">Seja um anfitriao</a>
+            </li>
+            <li>
+              <a class="hover:text-ocre-light" href="#">Entrar</a>
+            </li>
+            <li>
+              <a class="hover:text-ocre-light" href="#">Registre-se</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+  </body>
+</html>
