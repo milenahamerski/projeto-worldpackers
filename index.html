@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="styles.css"></script>
     <title>Seashellter</title>
     <script>
       tailwind.config = {
@@ -23,6 +24,10 @@
             },
             backgroundImage: {
               sea: "url('img/sea.jpg')",
+              logo: "url('img/seashellther.png')",
+            },
+            fontSize: {
+              "2xl": "2.0rem", // Definindo tamanho de fonte maior
             },
           },
         },
@@ -32,12 +37,12 @@
   <body>
     <div class="bg-sea bg-no-repeat bg-cover bg-top h-screen">
       <header>
-        <nav
-          class="p-3 bg-white shadow md:flex md:items-center md:justify-between"
-        >
-          <ul class="md:flex md:items-center">
-            <li>
-              <a class="hover:text-ocre-light" href="#">PT</a>
+        <nav class="p-3 md:flex md:items-center md:justify-center">
+          <img src="img/seashellther.png" class="h-12" alt="Seashellter Logo" />
+
+          <ul class="md:flex md:items-center space-x-12 text-gray">
+            <li class="md:w-auto">
+              <a class="hover:text-ocre-light pl-12" href="#">PT</a>
             </li>
             <li>
               <a class="hover:text-ocre-light" href="#">Ajuda</a>
@@ -52,11 +57,20 @@
               <a class="hover:text-ocre-light" href="#">Entrar</a>
             </li>
             <li>
-              <a class="hover:text-ocre-light" href="#">Registre-se</a>
+              <button
+                class="bg-ocre-light hover:bg-blue-100 text-gray font-bold py-1 px-3 rounded"
+              >
+                <a class="hover:text-gray" href="#">Registre-se</a>
+              </button>
             </li>
           </ul>
         </nav>
       </header>
+      <main class="flex justify-center items-center h-96">
+        <div class="text-ocre-light font-bold-oswald text-2xl">
+          "Viaje, colabore e impacte."
+        </div>
+      </main>
     </div>
   </body>
 </html>
