@@ -13,6 +13,12 @@
 
     <script src="styles.css"></script>
     <title>Seashellter</title>
+    <style>
+      /* This CSS should be moved to styles.css for better organization */
+      .hover-img:hover {
+        filter: brightness(50%);
+      }
+    </style>
     <script>
       tailwind.config = {
         theme: {
@@ -51,7 +57,7 @@
             alt="Seashellter Logo"
           />
 
-          <ul class="md:flex md:items-center space-x-12 text-gray">
+          <ul class="md:flex md:items-center space-x-12 text-bold text-gray">
             <li class="md:w-auto">
               <a class="hover:text-ocre-light pl-12" href="#">PT</a>
             </li>
@@ -77,11 +83,21 @@
           </ul>
         </nav>
       </header>
-      <main class="flex justify-center items-center h-96">
-        <div class="text-ocre-light font-bold font-oswald text-4xl">
+      <main class="flex justify-center items-center h-80">
+        <div
+          class="text-ocre-light font-bold font-oswald text-5xl drop-shadow-md"
+        >
           Viaje, colabore e impacte.
         </div>
       </main>
     </div>
+
+    <section class="flex justify-center mt-10">
+      <img
+        src="/projeto-worldpackers/assets/img/southAmericaHigh.svg"
+        class="w-24 h-24 m-4 fill-current text-chalk hover-img hover:text-ocre-light"
+        alt="South America"
+      />
+    </section>
   </body>
 </html>
