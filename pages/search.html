@@ -42,8 +42,45 @@
     <title>searchpage</title>
   </head>
 
-  <body class="h-screen bg-chalk">
-    <section class="md:h-full flex items-center text-gray">
+  <body class="h-screen bg-white">
+    <div class="bg-no-repeat bg-cover bg-top pb-5">
+      <header>
+        <nav class="p-3 md:flex md:items-center md:justify-center">
+          <img
+            src="/projeto-worldpackers/assets/img/seashellther.png"
+            class="h-12"
+            alt="Seashellter Logo"
+          />
+
+          <ul class="md:flex md:items-center space-x-12 text-bold text-gray">
+            <li class="md:w-auto">
+              <a class="hover:text-ocre-light pl-12" href="#">PT</a>
+            </li>
+            <li>
+              <a class="hover:text-ocre-light" href="#">Ajuda</a>
+            </li>
+            <li>
+              <a class="hover:text-ocre-light" href="#">Como Funciona</a>
+            </li>
+            <li>
+              <a class="hover:text-ocre-light" href="#">Seja um anfitriao</a>
+            </li>
+            <li>
+              <a class="hover:text-ocre-light" href="#">Entrar</a>
+            </li>
+            <li>
+              <button
+                class="bg-ocre-light hover:bg-blue-100 text-gray font-montserrat py-1 px-3 rounded"
+              >
+                <a class="hover:text-gray" href="#">Registre-se</a>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+    <section class="md:h-full flex items-center text-chalk">
       <div class="container px-5 py-24 mx-auto">
         <div class="text-center mb-12">
           <h5 class="text-base md:text-lg text-blue mb-1">
@@ -54,15 +91,41 @@
           </h1>
         </div>
 
-        <div class="flex flex-wrap -m-4">
-          <div class="p-4 sm:w-1/2 lg:w-1/3">
+        <div class="flex justify-end">
+          <div class="w-7/12">
             <div
-              class="h-full border-2 border-gray border-opacity-60 rounded-lg overflow-hidden"
+              class="h-full border-2 border-chalk border-opacity-60 rounded-lg overflow-hidden"
             >
               <img
-                src="projeto-worldpackers/assets/img/divePhotographer.jpg"
-                alt=""
+                src="/projeto-worldpackers/assets/img/divePhotographer.jpg"
+                alt="image"
+                class="lg:h-72 md:h-48 w-full object-cover object-center"
               />
+              <div
+                class="p-6 hover:bg-ocre-light hover:text-white transition duration-300 case-in"
+              >
+                <h2
+                  class="text-base font-montserrat font-medium text-chalk mb-1"
+                >
+                  October 29, 2011
+                </h2>
+                <h1 class="font-oswald text-2xl font-semibold mb-3">
+                  Cities are crowded
+                </h1>
+                <p class="font-montserrat leading-relaxed mb-3">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Quasi debitis consequuntur, recusandae tenetur voluptate
+                  corrupti cumque modi quisquam ab ea ut excepturi explicabo
+                  facilis laboriosam blanditiis! Fuga quasi sit saepe?
+                </p>
+                <div class="flex items-center flex-wrap">
+                  <a
+                    href="#"
+                    class="font-oswald font-bold text-chalk inline-flex items-center mb:mb-2 lg:mb-0"
+                    >Read More</a
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
