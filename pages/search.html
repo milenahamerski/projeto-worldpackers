@@ -4,46 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/projeto-worldpackers/assets/main.js/tailwind.config.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap"
       rel="stylesheet"
     />
-    <script src="styles.css"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              blue: {
-                100: "#01585D",
-                200: "#027F86",
-              },
-              gray: "#D8D0C5",
-              "ocre-light": "#D6B670",
-              chalk: "#333737",
-            },
-            fontFamily: {
-              oswald: ["Oswald", "sans-serif"],
-              montserrat: ["Montserrat", "sans-serif"],
-            },
-            backgroundImage: {
-              sea: 'url("/projeto-worldpackers/assets/img/sea.jpg")',
-              logo: 'url("/projeto-worldpackers/assets/img/seashellther.png")',
-            },
-            fontSize: {
-              "2xl": "2.0rem",
-            },
-          },
-        },
-      };
-    </script>
+    <link
+      rel="stylesheet"
+      href="/projeto-worldpackers/assets/style/styles.css"
+    />
+
     <title>searchpage</title>
   </head>
 
   <body class="h-screen bg-white">
-    <div class="bg-no-repeat bg-cover bg-top pb-5">
+    <div class="bg-no-repeat bg-cover bg-top">
       <header>
         <nav class="p-3 md:flex md:items-center md:justify-center">
           <img
@@ -80,7 +57,7 @@
       </header>
     </div>
 
-    <section class="md:h-full flex items-center text-chalk">
+    <section class="flex items-center text-chalk">
       <div class="container px-5 py-24 mx-auto">
         <div class="text-center mb-12">
           <h5 class="text-base md:text-lg text-blue mb-1">
@@ -90,9 +67,13 @@
             Texto que eu nao sei ainda
           </h1>
         </div>
+      </div>
+    </section>
 
-        <div class="flex justify-end">
-          <div class="w-7/12">
+    <section class="md:h-full flex items-center text-chalk">
+      <div class="container px-5 pb-24 mx-auto">
+        <div class="flex flex-wrap -m-4">
+          <div class="w-full md:w-1/2 lg:w-1/3 p-4">
             <div
               class="h-full border-2 border-chalk border-opacity-60 rounded-lg overflow-hidden"
             >
@@ -124,6 +105,29 @@
                     class="font-oswald font-bold text-chalk inline-flex items-center mb:mb-2 lg:mb-0"
                     >Read More</a
                   >
+
+                  <label class="ui-like">
+                    <input type="checkbox" />
+                    <div class="like">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill=""
+                      >
+                        <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                        <g
+                          stroke-linejoin="round"
+                          stroke-linecap="round"
+                          id="SVGRepo_tracerCarrier"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path
+                            d="M20.808,11.079C19.829,16.132,12,20.5,12,20.5s-7.829-4.368-8.808-9.421C2.227,6.1,5.066,3.5,8,3.5a4.444,4.444,0,0,1,4,2,4.444,4.444,0,0,1,4-2C18.934,3.5,21.773,6.1,20.808,11.079Z"
+                          ></path>
+                        </g>
+                      </svg>
+                    </div>
+                  </label>
                 </div>
               </div>
             </div>
