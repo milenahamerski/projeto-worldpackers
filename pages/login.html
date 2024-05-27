@@ -10,53 +10,128 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap"
       rel="stylesheet"
     />
-    <script src="/projeto-worldpackers/assets/main.js/tailwind.config.js"></script>
-    <script src="/projeto-worldpackers/assets/style/styles.css"></script>
-    <title>Seashellter</title>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Cadastro</title>
   </head>
-  <body>
+  <body
+    class="bg-sea bg-no-repeat bg-cover bg-top h-screen flex justify-center items-center"
+  >
     <div
-      class="bg-sea bg-no-repeat bg-cover bg-top h-screen flex justify-center items-center h-screen"
+      class="bg-white bg-opacity-90 shadow-lg rounded-lg p-8 w-full max-w-md"
     >
-      <div class="w-1/2 h-96 p-6 shadow-lg bg-gray bg-opacity-70 rounded-md">
-        <h1 class="text-3xl text-chalk block text-center font-semibold">
-          <i class="fa-solid fa-user"></i>Login
-        </h1>
-        <hr class="mt-3" />
-        <div class="mt-3">
-          <label
-            for="username"
-            class="block color-chalk text-base text-chalk mb-2"
-            >Username</label
+      <h2 class="text-2xl font-bold font-oswald text-center mb-6 text-chalk">
+        Entrar
+      </h2>
+      <div class="mb-6">
+        <div class="flex justify-center space-x-4 mb-4">
+          <button
+            class="bg-blue-500 text-white px-2 py-1 rounded-md shadow hover:bg-blue-600 flex items-center text-sm"
+          >
+            <img
+              src="/projeto-worldpackers/assets/img/fb.png"
+              alt="facebook"
+              class="w-4 h-4 mr-2"
+            />
+            <i class="fab fa-facebook-f"></i> Entrar com Facebook
+          </button>
+          <button
+            class="bg-red-500 text-white px-2 py-2 rounded-md shadow hover:bg-red-600 flex items-center text-sm"
+          >
+            <img
+              src="/projeto-worldpackers/assets/img/google.png"
+              alt="facebook"
+              class="w-4 h-4 mr-2"
+            />
+            <i class="fab fa-google mr-2"></i> Entrar com Google
+          </button>
+        </div>
+        <hr class="divide-y divide-chalk mt-5 mb-5" />
+
+        <p class="text-center text-chalk">Ou entre usando seu e-mail:</p>
+      </div>
+      <form id="registrationForm" class="space-y-4">
+        <div>
+          <label for="name" class="block text-sm font-montserrat text-chalk"
+            >Nome</label
           >
           <input
             type="text"
-            id="username"
-            class="w-full text-base text-chalk px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray"
-            placeholder="username"
-          />
-        </div>
-        <div class="mt-3">
-          <label for="password" class="block text-base mb-2 text-chalk"
-            >Password</label
-          >
-          <input
-            type="password"
-            id="password"
-            class="w-full text-base text-chalk px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray"
-            placeholder="password"
+            id="name"
+            class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            placeholder="Nome"
+            required
           />
         </div>
         <div>
-          <div>
-            <input type="checkbox" />
-            <label class="text-chalk">Lembre-me</label>
-          </div>
-          <div>
-            <a href="#" class="text-chalk font-semibold">Esqueceu a senha?</a>
-          </div>
+          <label for="email" class="block text-sm font-montserrat text-chalk"
+            >E-mail</label
+          >
+          <input
+            type="email"
+            id="email"
+            class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            placeholder="E-mail"
+            required
+          />
         </div>
-      </div>
+        <div>
+          <label for="dob" class="block text-sm font-montserrat text-chalk"
+            >Data de Nascimento</label
+          >
+          <input
+            type="date"
+            id="dob"
+            class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            required
+          />
+        </div>
+        <div class="flex items-center">
+          <input
+            type="checkbox"
+            id="remember"
+            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+          />
+          <label for="remember" class="ml-2 block text-sm text-chalk"
+            >Lembrar</label
+          >
+          <a href="#" class="ml-auto text-sm text-blue-100 hover:underline"
+            >Esqueceu sua senha?</a
+          >
+        </div>
+        <div class="flex justify-between">
+          <button
+            type="submit"
+            class="bg-ocre-light text-white px-2 py-1 rounded-md shadow hover:bg-blue-100 text-sm"
+          >
+            Entrar
+          </button>
+          <button
+            type="button"
+            id="clearButton"
+            class="bg-chalk text-white px-2 py-1 rounded-md shadow hover:bg-blue-100 text-sm"
+          >
+            Limpar
+          </button>
+        </div>
+      </form>
     </div>
+    <script src="/projeto-worldpackers/assets/main/tailwind.config.js"></script>
+    <script>
+      document
+        .getElementById("clearButton")
+        .addEventListener("click", function () {
+          document.getElementById("registrationForm").reset();
+        });
+
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          alert("Cadastro enviado com sucesso!");
+        });
+    </script>
   </body>
 </html>

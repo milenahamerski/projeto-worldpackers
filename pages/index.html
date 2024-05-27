@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seashellter</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,59 +13,134 @@
     />
     <script src="/projeto-worldpackers/assets/main.js/tailwind.config.js"></script>
     <script src="/projeto-worldpackers/assets/style/styles.css"></script>
-    <title>Seashellter</title>
+    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
   </head>
   <body>
-    <div class="bg-sea bg-no-repeat bg-cover bg-top h-screen">
+    <div class="bg-background bg-no-repeat bg-cover bg-top h-screen relative">
       <header>
-        <nav class="p-3 md:flex md:items-center md:justify-center">
-          <img
-            src="/projeto-worldpackers/assets/img/seashellther.png"
-            class="h-12"
-            alt="Seashellter Logo"
-          />
+        <nav class="bg-gray-800 p-4">
+          <div
+            class="flex items-center justify-between md:flex md:items-center md:justify-center"
+          >
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+              <a href="#" class="text-white font-bold">Logo</a>
+            </div>
 
-          <ul class="md:flex md:items-center space-x-12 text-bold text-gray">
-            <li class="md:w-auto">
-              <a class="hover:text-ocre-light pl-12" href="#">PT</a>
-            </li>
-            <li>
-              <a class="hover:text-ocre-light" href="#">Ajuda</a>
-            </li>
-            <li>
-              <a class="hover:text-ocre-light" href="#">Como Funciona</a>
-            </li>
-            <li>
-              <a class="hover:text-ocre-light" href="#">Seja um anfitriao</a>
-            </li>
-            <li>
-              <a class="hover:text-ocre-light" href="#">Entrar</a>
-            </li>
-            <li>
+            <!-- Hamburger Icon -->
+            <div class="md:hidden">
               <button
-                class="bg-ocre-light hover:bg-blue-100 text-gray font-montserrat py-1 px-3 rounded"
+                id="menu-btn"
+                class="text-gray hover:text-ocre-light focus:outline-none"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Navbar links -->
+            <div class="hidden md:block">
+              <ul class="md:flex md:space-x-4 text-white">
+                <li><a href="#" class="hover:text-ocre-light">Ajuda</a></li>
+                <li>
+                  <a href="#" class="hover:text-ocre-light">Como funciona</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-ocre-light"
+                    >Seja um Anfitriao</a
+                  >
+                </li>
+                <button
+                  class="bg-ocre-light hover:bg-blue-100 text-gray font-montserrat py-1 px-3 rounded"
+                >
+                  <a class="hover:text-gray" href="#">Registre-se</a>
+                </button>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Offcanvas Menu -->
+          <div
+            id="offcanvas-menu"
+            class="hidden md:hidden fixed inset-0 bg-ocre-light bg-opacity-100 z-50"
+          >
+            <div class="flex justify-end p-4">
+              <button
+                id="close-btn"
+                class="text-chalk hover:text-gray focus:outline-none"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <ul
+              class="flex flex-col items-center text-montserrat text-chalk mt-10 space-y-4"
+            >
+              <li><a href="#" class="hover:text-gray">Ajuda</a></li>
+              <li><a href="#" class="hover:text-gray">Como funciona</a></li>
+              <li><a href="#" class="hover:text-gray">Seja um anfitriao</a></li>
+              <li><a href="#" class="hover:text-gray">Entrar</a></li>
+              <button
+                class="bg-blue hover:bg-chalk text-gray font-montserrat py-1 px-3 rounded"
               >
                 <a class="hover:text-gray" href="#">Registre-se</a>
               </button>
-            </li>
-          </ul>
+            </ul>
+          </div>
         </nav>
       </header>
-      <main class="flex justify-center items-center h-80">
-        <div
-          class="text-ocre-light font-bold font-oswald text-5xl drop-shadow-md"
-        >
-          Viaje, colabore e impacte.
-        </div>
-      </main>
-    </div>
 
-    <section class="flex justify-center mt-10">
-      <img
-        src="/projeto-worldpackers/assets/img/southAmericaHigh.svg"
-        class="w-24 h-24 m-4 fill-current text-chalk hover-img hover:text-ocre-light"
-        alt="South America"
-      />
+      <section class="relative h-screen">
+        <h2 class="flex justify-center pt-50 text-blue-100 font-bold font-oswald text-5xl drop-shadow-md z-10 absolute top-0 left-0 right-0">Viaje, colabore e impacte.</h2>
+        <img src="/projeto-worldpackers/assets/img/sea_wb.png" class="parllaximg1 z-40 h-auto w-full object-cover bottom-0" />
     </section>
+    
+
+    <script>
+      document
+        .getElementById("menu-btn")
+        .addEventListener("click", function () {
+          var offcanvasMenu = document.getElementById("offcanvas-menu");
+          offcanvasMenu.classList.remove("hidden");
+        });
+
+      document
+        .getElementById("close-btn")
+        .addEventListener("click", function () {
+          var offcanvasMenu = document.getElementById("offcanvas-menu");
+          offcanvasMenu.classList.add("hidden");
+        });
+
+      var image = document.getElementsByClassName("parllaximg1");
+      new simpleParallax(image, {
+        orientation: "up",
+        delay: 2.0,
+        transition: "cubic-bezier(0,0,0,1)",
+      });
+    </script>
   </body>
 </html>

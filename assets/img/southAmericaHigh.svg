@@ -5,12 +5,18 @@
 		<style type="text/css">
 			.land
 			{
-				fill: #CCCCCC;
+				fill: #D6B670;
 				fill-opacity: 1;
 				stroke:white;
 				stroke-opacity: 1;
 				stroke-width:0.5;
 			}
+
+			.land:hover {
+                fill: #D6B670; 
+            }
+
+
 		</style>
 
 		<amcharts:ammap projection="mercator" leftLongitude="-109.454954" topLatitude="12.443123" rightLongitude="3.503202" bottomLatitude="-58.511386"></amcharts:ammap>
