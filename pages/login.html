@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,6 +15,14 @@
       crossorigin="anonymous"
     ></script>
     <title>Cadastro</title>
+    <style>
+      input:invalid {
+        border-color: red;
+      }
+      input:valid {
+        border-color: green;
+      }
+    </style>
   </head>
   <body
     class="bg-sea bg-no-repeat bg-cover bg-top h-screen flex justify-center items-center"
@@ -48,11 +56,10 @@
             <i class="fab fa-google mr-2"></i> Entrar com Google
           </button>
         </div>
-        <hr class="divide-y divide-chalk mt-5 mb-5" />
-
+        <hr class="border-t border-chalk my-5" />
         <p class="text-center text-chalk">Ou entre usando seu e-mail:</p>
       </div>
-      <form id="registrationForm" class="space-y-4">
+      <form id="registrationForm" class="space-y-4" novalidate>
         <div>
           <label for="name" class="block text-sm font-montserrat text-chalk"
             >Nome</label
@@ -63,7 +70,12 @@
             class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder="Nome"
             required
+            pattern="[A-Za-z\s]{3,}"
           />
+          <span class="text-red-500 text-xs hidden" id="nameError"
+            >Nome deve conter pelo menos 3 letras e apenas caracteres
+            alfabéticos.</span
+          >
         </div>
         <div>
           <label for="email" class="block text-sm font-montserrat text-chalk"
@@ -76,6 +88,31 @@
             placeholder="E-mail"
             required
           />
+          <span class="text-red-500 text-xs hidden" id="emailError"
+            >Por favor, insira um e-mail válido.</span
+          >
+        </div>
+        <div>
+          <label for="password" class="block text-sm font-montserrat text-chalk"
+            >Senha</label
+          >
+          <input
+            type="password"
+            id="password"
+            class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            placeholder="Senha"
+            required
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}"
+          />
+          <span class="text-red-500 text-xs hidden" id="passwordError">
+            <p>A senha deve ter pelo menos 8 caracteres</p>
+            <ul class="list-disc ml-5">
+              <li>Incluir uma letra maiúscula</li>
+              <li>Incluir uma letra minúscula</li>
+              <li>Incluir um número</li>
+              <li>Incluir um caractere especial</li>
+            </ul>
+          </span>
         </div>
         <div>
           <label for="dob" class="block text-sm font-montserrat text-chalk"
@@ -86,7 +123,12 @@
             id="dob"
             class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             required
+            min="1900-01-01"
+            max="2023-12-31"
           />
+          <span class="text-red-500 text-xs hidden" id="dobError"
+            >Por favor, insira uma data de nascimento válida.</span
+          >
         </div>
         <div class="flex items-center">
           <input
@@ -124,14 +166,54 @@
         .getElementById("clearButton")
         .addEventListener("click", function () {
           document.getElementById("registrationForm").reset();
+          document.querySelectorAll(".error").forEach(function (span) {
+            span.style.display = "none";
+          });
         });
 
       document
         .getElementById("registrationForm")
         .addEventListener("submit", function (event) {
           event.preventDefault();
-          alert("Cadastro enviado com sucesso!");
+          if (this.checkValidity()) {
+            alert("Cadastro enviado com sucesso!");
+          } else {
+            displayErrors();
+          }
         });
+
+      function displayErrors() {
+        var name = document.getElementById("name");
+        var email = document.getElementById("email");
+        var password = document.getElementById("password");
+        var dob = document.getElementById("dob");
+
+        document.getElementById("nameError").style.display = name.validity.valid
+          ? "none"
+          : "block";
+        document.getElementById("emailError").style.display = email.validity
+          .valid
+          ? "none"
+          : "block";
+        document.getElementById("passwordError").style.display = password
+          .validity.valid
+          ? "none"
+          : "block";
+        document.getElementById("dobError").style.display = dob.validity.valid
+          ? "none"
+          : "block";
+      }
+
+      var inputs = document.querySelectorAll("input");
+      inputs.forEach(function (input) {
+        input.addEventListener("input", function () {
+          if (this.checkValidity()) {
+            document.getElementById(this.id + "Error").style.display = "none";
+          } else {
+            document.getElementById(this.id + "Error").style.display = "block";
+          }
+        });
+      });
     </script>
   </body>
 </html>
