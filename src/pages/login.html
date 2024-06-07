@@ -39,7 +39,7 @@
             class="bg-blue-500 text-white px-2 py-1 rounded-md shadow hover:bg-blue-600 flex items-center text-sm"
           >
             <img
-              src="/projeto-worldpackers/assets/img/fb.png"
+              src="/projeto-worldpackers/src/assets/img/fb.png"
               alt="facebook"
               class="w-4 h-4 mr-2"
             />
@@ -49,7 +49,7 @@
             class="bg-red-500 text-white px-2 py-2 rounded-md shadow hover:bg-red-600 flex items-center text-sm"
           >
             <img
-              src="/projeto-worldpackers/assets/img/google.png"
+              src="/projeto-worldpackers/src/assets/img/google.png"
               alt="facebook"
               class="w-4 h-4 mr-2"
             />
@@ -160,7 +160,7 @@
         </div>
       </form>
     </div>
-    <script src="/projeto-worldpackers/assets/main/tailwind.config.js"></script>
+    <script src="/projeto-worldpackers/src/assets/main/tailwind.config.js"></script>
     <script>
       document
         .getElementById("clearButton")
@@ -204,7 +204,7 @@
           : "block";
       }
 
-      var inputs = document.querySelectorAll("input");
+      let inputs = document.querySelectorAll("input");
       inputs.forEach(function (input) {
         input.addEventListener("input", function () {
           if (this.checkValidity()) {
