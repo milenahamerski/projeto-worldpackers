@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "name": "Phuket",
+      "id": "00323cd3-09e5-491d-aff0-aa732eb1453c",
+      "language": "Inglês, Tailandês",
+      "image": "https://images.unsplash.com/photo-1494949360228-4e9bde560065?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "text": "Junte-se à nossa equipe na deslumbrante Tommy's Dive Center em Phuket, Tailândia! Procuramos um instrutor de mergulho apaixonado e experiente para liderar nossos mergulhadores em aventuras subaquáticas inesquecíveis. Com águas cristalinas, recifes coloridos e uma fauna marinha diversificada, você terá o cenário perfeito para compartilhar sua paixão pelo oceano. Se você é certificado, entusiasta e adora ensinar, candidate-se agora e mergulhe conosco em uma jornada emocionante sob as ondas da Tailândia!",
+      "meal": "1 refeição inclusa",
+      "region": "asia",
+      "title": "Instrutor de Mergulho em Phuket: Aventura Subaquática na Tommy's Dive Center"
+    },
+    {
+      "name": "Rio de Janeiro",
+      "id": "0007a615-c0c7-44a4-95c9-b291257207b1",
+      "language": "Inglês, Português, Espanhol",
+      "image": "https://images.unsplash.com/photo-1558732314-f2ee01b9ee51?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "text": "Desbrave as profundezas do Rio de Janeiro como instrutor de mergulho no Maritimo Dive! Embarque nesta aventura única pelas águas misteriosas da Cidade Maravilhosa, onde cada mergulho revela um novo mundo subaquático repleto de corais vibrantes e vida marinha exótica. Se você é um entusiasta do oceano, apaixonado por compartilhar conhecimento e possui uma certificação em mergulho, esta é a sua oportunidade de se tornar parte de nossa equipe. Junte-se a nós e mergulhe de cabeça nessa jornada fascinante rumo ao desconhecido nas águas cristalinas do Rio de Janeiro!",
+      "meal": "2 refeições inclusas",
+      "region": "america",
+      "title": "Vaga para Instrutor de Mergulho: Explore o Rio de Janeiro com o Maritimo Dive"
+    },
+    {
+      "name": "Cartagena",
+      "id": "18627237-4d17-44fb-8611-42560d15c340",
+      "language": "Inglês, Espanhol",
+      "image": "https://images.unsplash.com/photo-1601993396092-056704c5269b?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "text": "Desperte sua paixão pelo oceano e embarque em uma aventura única como instrutor de mergulho em Cartagena, Colômbia. Junte-se à nossa equipe no coração deste paraíso caribenho, onde as águas turquesas e os recifes coloridos aguardam para serem explorados. Se você é um instrutor certificado em busca de um ambiente dinâmico e acolhedor, onde possa compartilhar seu amor pelo mergulho, esta é a sua oportunidade. Venha fazer parte de algo especial, onde cada mergulho é uma nova descoberta e cada dia é uma aventura emocionante sob as ondas!",
+      "meal": "1 refeição inclusa",
+      "region": "america",
+      "title": "Transforme seu Amor pelo Mergulho em Aventura: Seja Instrutor em Cartagena!"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

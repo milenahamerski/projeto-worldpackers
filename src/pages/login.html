@@ -253,10 +253,54 @@
     </div>
     <script src="/projeto-worldpackers/src/assets/main/tailwind.config.js"></script>
     <script>
+      function saveFormData(formData) {
+        let savedData = localStorage.getItem("formData");
+
+        if (!savedData) {
+          savedData = [];
+        } else {
+          savedData = JSON.parse(savedData);
+        }
+
+        savedData.push(formData);
+        localStorage.setItem("formData", JSON.stringify(savedData));
+      }
+
+      function loadAndDisplayFormData() {
+        let savedData = localStorage.getItem("formData");
+
+        if (savedData) {
+          savedData = JSON.parse(savedData);
+
+          let displayContainer = document.createElement("div");
+          savedData.forEach(function (formData, index) {
+            let formDisplay = document.createElement("div");
+            formDisplay.innerHTML = `
+                      <h3>Formulário ${index + 1}</h3>
+                      <p>Nome: ${formData.name}</p>
+                      <p>Email: ${formData.email}</p>
+                      <p>Data de Nascimento: ${formData.dob}</p>
+                  `;
+            displayContainer.appendChild(formDisplay);
+          });
+
+          document.body.appendChild(displayContainer);
+        }
+      }
+
+      function clearFormAndLocalStorage() {
+        document.getElementById("registrationForm").reset();
+        localStorage.removeItem("formData");
+      }
+
+      window.onload = function () {
+        loadAndDisplayFormData();
+      };
+
       document
         .getElementById("clearButton")
         .addEventListener("click", function () {
-          document.getElementById("registrationForm").reset();
+          clearFormAndLocalStorage();
           document.querySelectorAll(".text-red-500").forEach(function (span) {
             span.style.display = "none";
           });
@@ -280,6 +324,20 @@
         .addEventListener("submit", function (event) {
           event.preventDefault();
           if (this.checkValidity()) {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let dob = document.getElementById("dob").value;
+
+            const formData = {
+              name: name,
+              email: email,
+              password: password,
+              dob: dob,
+            };
+
+            saveFormData(formData);
+
             alert("Cadastro enviado com sucesso!");
           } else {
             displayErrors();
