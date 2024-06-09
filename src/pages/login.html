@@ -24,141 +24,232 @@
       }
     </style>
   </head>
-  <body
-    class="bg-sea bg-no-repeat bg-cover bg-top h-screen flex justify-center items-center"
-  >
-    <div
-      class="bg-white bg-opacity-90 shadow-lg rounded-lg p-8 w-full max-w-md"
-    >
-      <h2 class="text-2xl font-bold font-oswald text-center mb-6 text-chalk">
-        Entrar
-      </h2>
-      <div class="mb-6">
-        <div class="flex justify-center space-x-4 mb-4">
-          <button
-            class="bg-blue-500 text-white px-2 py-1 rounded-md shadow hover:bg-blue-600 flex items-center text-sm"
-          >
-            <img
-              src="/projeto-worldpackers/src/assets/img/fb.png"
-              alt="facebook"
-              class="w-4 h-4 mr-2"
-            />
-            <i class="fab fa-facebook-f"></i> Entrar com Facebook
-          </button>
-          <button
-            class="bg-red-500 text-white px-2 py-2 rounded-md shadow hover:bg-red-600 flex items-center text-sm"
-          >
-            <img
-              src="/projeto-worldpackers/src/assets/img/google.png"
-              alt="facebook"
-              class="w-4 h-4 mr-2"
-            />
-            <i class="fab fa-google mr-2"></i> Entrar com Google
-          </button>
-        </div>
-        <hr class="border-t border-chalk my-5" />
-        <p class="text-center text-chalk">Ou entre usando seu e-mail:</p>
-      </div>
-      <form id="registrationForm" class="space-y-4" novalidate>
-        <div>
-          <label for="name" class="block text-sm font-montserrat text-chalk"
-            >Nome</label
-          >
-          <input
-            type="text"
-            id="name"
-            class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            placeholder="Nome"
-            required
-            pattern="[A-Za-z\s]{3,}"
+  <body class="h-screen bg-ocre-light">
+    <header>
+      <nav class="bg-chalk pl-6 py-2">
+        <div class="flex items-center justify-between">
+          <img
+            src="/projeto-worldpackers/src/assets/img/seashellther.png"
+            class="h-8"
+            alt="Seashellter Logo"
           />
-          <span class="text-red-500 text-xs hidden" id="nameError"
-            >Nome deve conter pelo menos 3 letras e apenas caracteres
-            alfabéticos.</span
+          <div
+            class="hidden md:flex md:flex-grow md:justify-center md:items-center text-gray text-sm"
           >
-        </div>
-        <div>
-          <label for="email" class="block text-sm font-montserrat text-chalk"
-            >E-mail</label
-          >
-          <input
-            type="email"
-            id="email"
-            class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            placeholder="E-mail"
-            required
-          />
-          <span class="text-red-500 text-xs hidden" id="emailError"
-            >Por favor, insira um e-mail válido.</span
-          >
-        </div>
-        <div>
-          <label for="password" class="block text-sm font-montserrat text-chalk"
-            >Senha</label
-          >
-          <input
-            type="password"
-            id="password"
-            class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            placeholder="Senha"
-            required
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}"
-          />
-          <span class="text-red-500 text-xs hidden" id="passwordError">
-            <p>A senha deve ter pelo menos 8 caracteres</p>
-            <ul class="list-disc ml-5">
-              <li>Incluir uma letra maiúscula</li>
-              <li>Incluir uma letra minúscula</li>
-              <li>Incluir um número</li>
-              <li>Incluir um caractere especial</li>
+            <ul class="flex space-x-8">
+              <li><a href="#" class="hover:text-ocre-light">Ajuda</a></li>
+              <li>
+                <a href="#" class="hover:text-ocre-light">Como funciona</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-ocre-light">Seja um Anfitriao</a>
+              </li>
             </ul>
-          </span>
+            <button
+              class="bg-ocre-light hover:bg-blue-100 text-gray font-montserrat py-1 px-2 rounded ml-4"
+            >
+              <a class="hover:text-gray" href="#">Registre-se</a>
+            </button>
+          </div>
+          <div class="md:hidden">
+            <button
+              id="menu-btn"
+              class="text-gray hover:text-ocre-light focus:outline-none"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
         </div>
-        <div>
-          <label for="dob" class="block text-sm font-montserrat text-chalk"
-            >Data de Nascimento</label
+        <div
+          id="offcanvas-menu"
+          class="hidden md:hidden fixed inset-0 bg-ocre-light bg-opacity-100 z-50"
+        >
+          <div class="flex justify-end p-4">
+            <button
+              id="close-btn"
+              class="text-chalk hover:text-gray focus:outline-none"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <ul
+            class="flex flex-col items-center text-montserrat text-chalk mt-10 space-y-4"
           >
-          <input
-            type="date"
-            id="dob"
-            class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            required
-            min="1900-01-01"
-            max="2023-12-31"
-          />
-          <span class="text-red-500 text-xs hidden" id="dobError"
-            >Por favor, insira uma data de nascimento válida.</span
-          >
+            <li><a href="#" class="hover:text-gray">Ajuda</a></li>
+            <li><a href="#" class="hover:text-gray">Como funciona</a></li>
+            <li><a href="#" class="hover:text-gray">Seja um anfitriao</a></li>
+            <li><a href="#" class="hover:text-gray">Entrar</a></li>
+            <button
+              class="bg-blue hover:bg-chalk text-gray font-montserrat py-1 px-2 rounded"
+            >
+              <a class="hover:text-gray" href="#">Registre-se</a>
+            </button>
+          </ul>
         </div>
-        <div class="flex items-center">
-          <input
-            type="checkbox"
-            id="remember"
-            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-          />
-          <label for="remember" class="ml-2 block text-sm text-chalk"
-            >Lembrar</label
-          >
-          <a href="#" class="ml-auto text-sm text-blue-100 hover:underline"
-            >Esqueceu sua senha?</a
-          >
+      </nav>
+    </header>
+    <div class="flex justify-center items-center">
+      <div
+        class="justify-center bg-white bg-opacity-90 shadow-lg rounded-lg mt-4 py-3 px-8 max-w-md"
+      >
+        <h2 class="text-2xl font-bold font-oswald text-center mb-2 text-chalk">
+          Entrar
+        </h2>
+        <div class="mb-6">
+          <div class="flex justify-center space-x-4 mb-4">
+            <button
+              class="bg-blue-500 text-white px-2 py-1 rounded-md shadow hover:bg-blue-600 flex items-center text-sm"
+            >
+              <img
+                src="/projeto-worldpackers/src/assets/img/fb.png"
+                alt="facebook"
+                class="w-4 h-4 mr-2"
+              />
+              <i class="fab fa-facebook-f"></i> Entrar com Facebook
+            </button>
+            <button
+              class="bg-red-500 text-white px-2 py-2 rounded-md shadow hover:bg-red-600 flex items-center text-sm"
+            >
+              <img
+                src="/projeto-worldpackers/src/assets/img/google.png"
+                alt="facebook"
+                class="w-4 h-4 mr-2"
+              />
+              <i class="fab fa-google mr-2"></i> Entrar com Google
+            </button>
+          </div>
+          <hr class="border-t border-chalk my-3" />
+          <p class="text-center text-chalk">Ou entre usando seu e-mail:</p>
         </div>
-        <div class="flex justify-between">
-          <button
-            type="submit"
-            class="bg-ocre-light text-white px-2 py-1 rounded-md shadow hover:bg-blue-100 text-sm"
-          >
-            Entrar
-          </button>
-          <button
-            type="button"
-            id="clearButton"
-            class="bg-chalk text-white px-2 py-1 rounded-md shadow hover:bg-blue-100 text-sm"
-          >
-            Limpar
-          </button>
-        </div>
-      </form>
+        <form id="registrationForm" class="space-y-3" novalidate>
+          <div>
+            <label for="name" class="block text-sm font-montserrat text-chalk"
+              >Nome</label
+            >
+            <input
+              type="text"
+              id="name"
+              class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder="Nome"
+              required
+              pattern="[A-Za-z\s]{3,}"
+            />
+            <span class="text-red-500 text-xs hidden" id="nameError"
+              >Nome deve conter pelo menos 3 letras e apenas caracteres
+              alfabéticos.</span
+            >
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-montserrat text-chalk"
+              >E-mail</label
+            >
+            <input
+              type="email"
+              id="email"
+              class="mt-1 block w-full px-2 py-1 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder="E-mail"
+              required
+            />
+            <span class="text-red-500 text-xs hidden" id="emailError"
+              >Por favor, insira um e-mail válido.</span
+            >
+          </div>
+          <div>
+            <label
+              for="password"
+              class="block text-sm font-montserrat text-chalk"
+              >Senha</label
+            >
+            <input
+              type="password"
+              id="password"
+              class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder="Senha"
+              required
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}"
+            />
+            <span class="text-red-500 text-xs hidden" id="passwordError">
+              <p>A senha deve ter pelo menos 8 caracteres</p>
+              <ul class="list-disc ml-5">
+                <li>Incluir uma letra maiúscula</li>
+                <li>Incluir uma letra minúscula</li>
+                <li>Incluir um número</li>
+                <li>Incluir um caractere especial</li>
+              </ul>
+            </span>
+          </div>
+          <div>
+            <label for="dob" class="block text-sm font-montserrat text-chalk"
+              >Data de Nascimento</label
+            >
+            <input
+              type="date"
+              id="dob"
+              class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              required
+              min="1900-01-01"
+              max="2023-12-31"
+            />
+            <span class="text-red-500 text-xs hidden" id="dobError"
+              >Por favor, insira uma data de nascimento válida.</span
+            >
+          </div>
+          <div class="flex items-center">
+            <input
+              type="checkbox"
+              id="remember"
+              class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+            />
+            <label for="remember" class="ml-2 block text-sm text-chalk"
+              >Lembrar</label
+            >
+            <a href="#" class="ml-auto text-sm text-blue-100 hover:underline"
+              >Esqueceu sua senha?</a
+            >
+          </div>
+          <div class="flex justify-between">
+            <button
+              type="submit"
+              class="bg-ocre-light text-white px-2 py-1 rounded-md shadow hover:bg-blue-100 text-sm"
+            >
+              Entrar
+            </button>
+            <button
+              type="button"
+              id="clearButton"
+              class="bg-chalk text-white px-2 py-1 rounded-md shadow hover:bg-blue-100 text-sm"
+            >
+              Limpar
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
     <script src="/projeto-worldpackers/src/assets/main/tailwind.config.js"></script>
     <script>
@@ -166,9 +257,22 @@
         .getElementById("clearButton")
         .addEventListener("click", function () {
           document.getElementById("registrationForm").reset();
-          document.querySelectorAll(".error").forEach(function (span) {
+          document.querySelectorAll(".text-red-500").forEach(function (span) {
             span.style.display = "none";
           });
+        });
+
+      document
+        .getElementById("menu-btn")
+        .addEventListener("click", function () {
+          document.getElementById("offcanvas-menu").classList.toggle("hidden");
+        });
+
+      document
+        .getElementById("close-btn")
+        .addEventListener("click", function () {
+          let offcanvasMenu = document.getElementById("offcanvas-menu");
+          offcanvasMenu.classList.add("hidden");
         });
 
       document
@@ -183,10 +287,10 @@
         });
 
       function displayErrors() {
-        var name = document.getElementById("name");
-        var email = document.getElementById("email");
-        var password = document.getElementById("password");
-        var dob = document.getElementById("dob");
+        let name = document.getElementById("name");
+        let email = document.getElementById("email");
+        let password = document.getElementById("password");
+        let dob = document.getElementById("dob");
 
         document.getElementById("nameError").style.display = name.validity.valid
           ? "none"

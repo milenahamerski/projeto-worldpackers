@@ -15,12 +15,14 @@ tailwind.config = {
         montserrat: ["Montserrat", "sans-serif"],
       },
       backgroundImage: {
-        background: 'url("/projeto-worldpackers/assets/img/background.png")',
-        sea: 'url("/projeto-worldpackers/assets/img/sea.jpg")',
-        logo: 'url("/projeto-worldpackers/assets/img/seashellther.png")',
+        background:
+          'url("/projeto-worldpackers/src/assets/img/background.png")',
+        sea: 'url("/projeto-worldpackers/src/assets/img/sea.jpg")',
+        logo: 'url("/projeto-worldpackers/src/assets/img/seashellther.png")',
       },
       fontSize: {
         "2xl": "2.0rem",
+        "1xl": "1.5rem",
       },
     },
   },

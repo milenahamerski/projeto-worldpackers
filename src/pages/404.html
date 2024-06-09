@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seashellter</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,12 +10,16 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap"
       rel="stylesheet"
     />
-    <script src="/projeto-worldpackers/src/assets/style/styles.css"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="/projeto-worldpackers/src/assets/style/styles.css"
+    />
     <script src="/projeto-worldpackers/src/assets/main/tailwind.config.js"></script>
+    <title>searchpage</title>
   </head>
-  <body>
-    <div class="bg-background bg-no-repeat bg-cover bg-top h-screen relative">
+
+  <body class="h-screen bg-white">
+    <div class="bg-no-repeat bg-cover bg-top relative">
       <header>
         <nav class="bg-chalk pl-6 py-2">
           <div class="flex items-center justify-between">
@@ -25,11 +28,13 @@
               class="h-8"
               alt="Seashellter Logo"
             />
+
             <div
               class="hidden md:flex md:flex-grow md:justify-center md:items-center text-gray text-sm"
             >
               <ul class="flex space-x-8">
                 <li><a href="#" class="hover:text-ocre-light">Ajuda</a></li>
+                <li><a href="#" class="hover:text-ocre-light">Vagas</a></li>
                 <li>
                   <a href="#" class="hover:text-ocre-light">Como funciona</a>
                 </li>
@@ -39,12 +44,37 @@
                   >
                 </li>
               </ul>
-              <button
-                class="bg-blue-100 hover:bg-blue-200 text-gray font-montserrat py-1 px-2 rounded ml-4"
-              >
-                <a class="hover:text-gray" href="#">Registre-se</a>
-              </button>
             </div>
+            <div class="pr-5 relative">
+              <button
+                id="profile-menu-btn"
+                class="bg-gray-100 hover:bg-gray-200 text-gray font-montserrat py-1 px-2 rounded-full focus:outline-none"
+              >
+                <img
+                  src="/projeto-worldpackers/src/assets/img/profile.png"
+                  class="h-8 w-8 rounded-full"
+                  alt="Profile Picture"
+                />
+              </button>
+
+              <div
+                id="profile-menu"
+                class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg"
+              >
+                <a
+                  href="#"
+                  class="block px-4 py-2 font-montserrat text-chalk hover:bg-ocre-light"
+                  >Perfil</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 font-montserrat text-chalk hover:bg-ocre-light"
+                  >Sair</a
+                >
+              </div>
+            </div>
+
+            <!--OFFCANVA-->
             <div class="md:hidden">
               <button
                 id="menu-btn"
@@ -67,6 +97,8 @@
               </button>
             </div>
           </div>
+
+          <!--OFFCANVA-->
           <div
             id="offcanvas-menu"
             class="hidden md:hidden fixed inset-0 bg-ocre-light bg-opacity-100 z-50"
@@ -96,35 +128,36 @@
               class="flex flex-col items-center text-montserrat text-chalk mt-10 space-y-4"
             >
               <li><a href="#" class="hover:text-gray">Ajuda</a></li>
+              <li><a href="#" class="hover:text-gray">Vagas</a></li>
               <li><a href="#" class="hover:text-gray">Como funciona</a></li>
               <li><a href="#" class="hover:text-gray">Seja um anfitriao</a></li>
-              <button
-                class="bg-blue-100 hover:bg-blue-200 text-gray font-montserrat py-1 px-2 rounded"
-              >
-                <a class="hover:text-gray" href="#">Registre-se</a>
-              </button>
+              <li>
+                <button
+                  class="bg-blue-100 hover:bg-blue-200 text-gray font-montserrat py-1 px-2 rounded"
+                >
+                  <a class="hover:text-gray" href="#">Registre-se</a>
+                </button>
+              </li>
             </ul>
           </div>
         </nav>
       </header>
-
-      <section class="relative h-screen">
-        <h2
-          class="flex justify-center pt-50 text-blue-100 font-bold font-oswald text-5xl drop-shadow-md z-10 absolute top-0 left-0 right-0"
-        >
-          Viaje, colabore e impacte.
-        </h2>
-        <img
-          src="/projeto-worldpackers/src/assets/img/sea_wb.png"
-          class="parllaximg1 z-40 h-auto w-full object-cover bottom-0"
-        />
+      <section>
+        <div class="min-h-screen flex items-center justify-center">
+          <img
+            src="/projeto-worldpackers/src/assets/img/survivor.svg"
+            class="h-"
+            alt="Seashellter Logo"
+          />
+        </div>
       </section>
     </div>
+
     <script>
       document
         .getElementById("menu-btn")
         .addEventListener("click", function () {
-          var offcanvasMenu = document.getElementById("offcanvas-menu");
+          let offcanvasMenu = document.getElementById("offcanvas-menu");
           offcanvasMenu.classList.remove("hidden");
         });
 
@@ -135,12 +168,11 @@
           offcanvasMenu.classList.add("hidden");
         });
 
-      let image = document.getElementsByClassName("parllaximg1");
-      new simpleParallax(image, {
-        orientation: "up",
-        delay: 2.0,
-        transition: "cubic-bezier(0,0,0,1)",
-      });
+      document
+        .getElementById("profile-menu-btn")
+        .addEventListener("click", function () {
+          document.getElementById("profile-menu").classList.toggle("hidden");
+        });
     </script>
   </body>
 </html>
