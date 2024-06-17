@@ -16,18 +16,25 @@
     />
     <script src="/projeto-worldpackers/src/assets/main/tailwind.config.js"></script>
     <title>searchpage</title>
+    <link
+      rel="shortcut icon"
+      type="imagex/png"
+      href="/projeto-worldpackers/src/assets/img/icon.ico"
+    />
   </head>
 
   <body class="h-screen bg-white">
     <div class="bg-no-repeat bg-cover bg-top relative">
-      <header>
-        <nav class="bg-chalk pl-6 py-2">
+      <header class="bg-chalk pl-6 py-2">
+        <nav>
           <div class="flex items-center justify-between">
-            <img
-              src="/projeto-worldpackers/src/assets/img/seashellther.png"
-              class="h-8"
-              alt="Seashellter Logo"
-            />
+            <a href="/projeto-worldpackers/src/pages/index.html">
+              <img
+                src="/projeto-worldpackers/src/assets/img/seashellther.png"
+                class="h-8"
+                alt="Seashellter Logo"
+              />
+            </a>
 
             <div
               class="hidden md:flex md:flex-grow md:justify-center md:items-center text-gray text-sm"
@@ -131,28 +138,20 @@
               <li><a href="#" class="hover:text-gray">Vagas</a></li>
               <li><a href="#" class="hover:text-gray">Como funciona</a></li>
               <li><a href="#" class="hover:text-gray">Seja um anfitriao</a></li>
-              <li><a href="#" class="hover:text-gray">Entrar</a></li>
               <li>
                 <button
                   class="bg-blue-100 hover:bg-blue-200 text-gray font-montserrat py-1 px-2 rounded"
                 >
-                  <a class="hover:text-gray" href="#">Registre-se</a>
+                  <a class="hover:text-gray" href="#">Sair</a>
                 </button>
               </li>
-
-              <li><a href="#" class="hover:text-gray">América do Sul</a></li>
-              <li><a href="#" class="hover:text-gray">América do Norte</a></li>
-              <li><a href="#" class="hover:text-gray">Ásia</a></li>
-              <li><a href="#" class="hover:text-gray">África</a></li>
-              <li><a href="#" class="hover:text-gray">Europa</a></li>
-              <li><a href="#" class="hover:text-gray">Oceania</a></li>
             </ul>
           </div>
         </nav>
       </header>
 
-      <section class="h-full flex">
-        <div class="w-1/3 p-10 flex justify-center items-center">
+      <div id="main-content"></div>
+      <!-- <div class="w-1/3 p-10 flex justify-center items-center">
           <img
             src="/projeto-worldpackers/src/assets/img/divePhotographer.jpg"
             class="w-full rounded-lg"
@@ -223,8 +222,8 @@
                 />
               </svg>
               <div class="pl-2">
-                <p>latitude:7.552420449639636</p>
-                <p>longitude:98.33433151245119</p>
+                <p id="latitude">latitude:7.552420449639636</p>
+                <p id="longitude">longitude:98.33433151245119</p>
               </div>
             </div>
             <div class="pr-2 pl-">
@@ -256,43 +255,23 @@
               <a class="hover:text-gray" href="#">Aplique agora</a>
             </button>
           </div>
-        </div>
-      </section>
+        </div> -->
     </div>
-    <script>
-      document
-        .getElementById("menu-btn")
-        .addEventListener("click", function () {
-          let offcanvasMenu = document.getElementById("offcanvas-menu");
-          offcanvasMenu.classList.remove("hidden");
-        });
 
-      document
-        .getElementById("close-btn")
-        .addEventListener("click", function () {
-          let offcanvasMenu = document.getElementById("offcanvas-menu");
-          offcanvasMenu.classList.add("hidden");
-        });
+    <script type="module">
+      import { fetchDataAndRender } from "/projeto-worldpackers/src/services/apiService.js";
 
-      document
-        .getElementById("profile-menu-btn")
-        .addEventListener("click", function () {
-          document.getElementById("profile-menu").classList.toggle("hidden");
-        });
-      document
-        .getElementById("likeButton")
-        .addEventListener("click", function () {
-          const likeButton = this;
-          const isLiked = likeButton.classList.toggle("liked");
+      document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
 
-          likeButton.innerHTML = isLiked
-            ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="red" class="size-6">
-          <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
-        </svg>`
-            : `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="size-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-        </svg>`;
-        });
+        if (!id) {
+          console.error("Nenhum ID na URL");
+          return;
+        }
+
+        fetchDataAndRender(id);
+      });
     </script>
   </body>
 </html>

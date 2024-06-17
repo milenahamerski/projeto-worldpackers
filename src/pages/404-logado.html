@@ -35,41 +35,50 @@
                 alt="Seashellter Logo"
               />
             </a>
+
             <div
               class="hidden md:flex md:flex-grow md:justify-center md:items-center text-gray text-sm"
             >
               <ul class="flex space-x-8">
+                <li><a href="#" class="hover:text-ocre-light">Ajuda</a></li>
+                <li><a href="#" class="hover:text-ocre-light">Vagas</a></li>
                 <li>
-                  <a
-                    href="/projeto-worldpackers/src/pages/404.html"
-                    class="hover:text-ocre-light"
-                    >Ajuda</a
-                  >
+                  <a href="#" class="hover:text-ocre-light">Como funciona</a>
                 </li>
                 <li>
-                  <a
-                    href="/projeto-worldpackers/src/pages/404.html"
-                    class="hover:text-ocre-light"
-                    >Como funciona</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="/projeto-worldpackers/src/pages/404.html"
-                    class="hover:text-ocre-light"
+                  <a href="#" class="hover:text-ocre-light"
                     >Seja um Anfitriao</a
                   >
                 </li>
               </ul>
+            </div>
+            <div class="pr-5 relative">
               <button
-                class="bg-blue-100 hover:bg-blue-200 text-gray font-montserrat py-1 px-2 rounded ml-4"
+                id="profile-menu-btn"
+                class="bg-gray-100 hover:bg-gray-200 text-gray font-montserrat py-1 px-2 rounded-full focus:outline-none"
+              >
+                <img
+                  src="/projeto-worldpackers/src/assets/img/profile.png"
+                  class="h-8 w-8 rounded-full"
+                  alt="Profile Picture"
+                />
+              </button>
+
+              <div
+                id="profile-menu"
+                class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg"
               >
                 <a
-                  class="hover:text-gray"
-                  href="/projeto-worldpackers/src/pages/login.html"
-                  >Registre-se</a
+                  href="#"
+                  class="block px-4 py-2 font-montserrat text-chalk hover:bg-ocre-light"
+                  >Perfil</a
                 >
-              </button>
+                <a
+                  href="#"
+                  class="block px-4 py-2 font-montserrat text-chalk hover:bg-ocre-light"
+                  >Sair</a
+                >
+              </div>
             </div>
 
             <!--OFFCANVA-->

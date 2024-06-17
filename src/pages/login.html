@@ -7,13 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/projeto-worldpackers/src/assets/img/icon.ico"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
     <title>Cadastro</title>
     <style>
       input:invalid {
@@ -24,15 +25,17 @@
       }
     </style>
   </head>
-  <body class="h-screen bg-ocre-light">
-    <header>
-      <nav class="bg-chalk pl-6 py-2">
-        <div class="flex items-center justify-between">
-          <img
-            src="/projeto-worldpackers/src/assets/img/seashellther.png"
-            class="h-8"
-            alt="Seashellter Logo"
-          />
+  <body class="h-screen bg-blue-100">
+    <header class="bg-chalk pl-6 py-2">
+      <nav>
+        <div class="flex items-center justify-between" id="logo">
+          <a href="/projeto-worldpackers/src/pages/index.html">
+            <img
+              src="/projeto-worldpackers/src/assets/img/seashellther.png"
+              class="h-8"
+              alt="Seashellter Logo"
+            />
+          </a>
           <div
             class="hidden md:flex md:flex-grow md:justify-center md:items-center text-gray text-sm"
           >
@@ -45,11 +48,6 @@
                 <a href="#" class="hover:text-ocre-light">Seja um Anfitriao</a>
               </li>
             </ul>
-            <button
-              class="bg-ocre-light hover:bg-blue-100 text-gray font-montserrat py-1 px-2 rounded ml-4"
-            >
-              <a class="hover:text-gray" href="#">Registre-se</a>
-            </button>
           </div>
           <div class="md:hidden">
             <button
@@ -104,12 +102,6 @@
             <li><a href="#" class="hover:text-gray">Ajuda</a></li>
             <li><a href="#" class="hover:text-gray">Como funciona</a></li>
             <li><a href="#" class="hover:text-gray">Seja um anfitriao</a></li>
-            <li><a href="#" class="hover:text-gray">Entrar</a></li>
-            <button
-              class="bg-blue hover:bg-chalk text-gray font-montserrat py-1 px-2 rounded"
-            >
-              <a class="hover:text-gray" href="#">Registre-se</a>
-            </button>
           </ul>
         </div>
       </nav>
@@ -174,6 +166,7 @@
               id="email"
               class="mt-1 block w-full px-2 py-1 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               placeholder="E-mail"
+              name="email"
               required
             />
             <span class="text-red-500 text-xs hidden" id="emailError"
@@ -191,6 +184,7 @@
               id="password"
               class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               placeholder="Senha"
+              name="password"
               required
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}"
             />
@@ -249,133 +243,71 @@
             </button>
           </div>
         </form>
+        <div id="formDataContainer"></div>
       </div>
     </div>
     <script src="/projeto-worldpackers/src/assets/main/tailwind.config.js"></script>
     <script>
-      function saveFormData(formData) {
-        let savedData = localStorage.getItem("formData");
-
-        if (!savedData) {
-          savedData = [];
-        } else {
-          savedData = JSON.parse(savedData);
-        }
-
-        savedData.push(formData);
-        localStorage.setItem("formData", JSON.stringify(savedData));
-      }
-
-      function loadAndDisplayFormData() {
-        let savedData = localStorage.getItem("formData");
-
-        if (savedData) {
-          savedData = JSON.parse(savedData);
-
-          let displayContainer = document.createElement("div");
-          savedData.forEach(function (formData, index) {
-            let formDisplay = document.createElement("div");
-            formDisplay.innerHTML = `
-                      <h3>Formulário ${index + 1}</h3>
-                      <p>Nome: ${formData.name}</p>
-                      <p>Email: ${formData.email}</p>
-                      <p>Data de Nascimento: ${formData.dob}</p>
-                  `;
-            displayContainer.appendChild(formDisplay);
-          });
-
-          document.body.appendChild(displayContainer);
-        }
-      }
-
       function clearFormAndLocalStorage() {
         document.getElementById("registrationForm").reset();
         localStorage.removeItem("formData");
+        document.getElementById("formDataContainer").innerHTML = "";
+      }
+
+      // Função assíncrona para verificar as credenciais de login
+      async function verifyCredentials(email, password) {
+        try {
+          const response = await fetch(
+            "/projeto-worldpackers/src/services/db.json"
+          );
+          const data = await response.json();
+
+          const credentials = data.credentials;
+
+          const validCredentials = credentials.some(
+            (cred) =>
+              cred.email.toLowerCase() === email.toLowerCase() &&
+              cred.password === password
+          );
+
+          return validCredentials;
+        } catch (error) {
+          console.error("Erro ao verificar credenciais:", error);
+          return false;
+        }
       }
 
       window.onload = function () {
-        loadAndDisplayFormData();
-      };
-
-      document
-        .getElementById("clearButton")
-        .addEventListener("click", function () {
-          clearFormAndLocalStorage();
-          document.querySelectorAll(".text-red-500").forEach(function (span) {
-            span.style.display = "none";
+        let clearButton = document.getElementById("clearButton");
+        if (clearButton) {
+          clearButton.addEventListener("click", function () {
+            clearFormAndLocalStorage();
           });
-        });
+        }
 
-      document
-        .getElementById("menu-btn")
-        .addEventListener("click", function () {
-          document.getElementById("offcanvas-menu").classList.toggle("hidden");
-        });
+        let registrationForm = document.getElementById("registrationForm");
+        if (registrationForm) {
+          registrationForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
 
-      document
-        .getElementById("close-btn")
-        .addEventListener("click", function () {
-          let offcanvasMenu = document.getElementById("offcanvas-menu");
-          offcanvasMenu.classList.add("hidden");
-        });
-
-      document
-        .getElementById("registrationForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          if (this.checkValidity()) {
-            let name = document.getElementById("name").value;
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
-            let dob = document.getElementById("dob").value;
 
-            const formData = {
-              name: name,
-              email: email,
-              password: password,
-              dob: dob,
-            };
+            const validCredentials = await verifyCredentials(email, password);
 
-            saveFormData(formData);
-
-            alert("Cadastro enviado com sucesso!");
-          } else {
-            displayErrors();
-          }
-        });
-
-      function displayErrors() {
-        let name = document.getElementById("name");
-        let email = document.getElementById("email");
-        let password = document.getElementById("password");
-        let dob = document.getElementById("dob");
-
-        document.getElementById("nameError").style.display = name.validity.valid
-          ? "none"
-          : "block";
-        document.getElementById("emailError").style.display = email.validity
-          .valid
-          ? "none"
-          : "block";
-        document.getElementById("passwordError").style.display = password
-          .validity.valid
-          ? "none"
-          : "block";
-        document.getElementById("dobError").style.display = dob.validity.valid
-          ? "none"
-          : "block";
-      }
-
-      let inputs = document.querySelectorAll("input");
-      inputs.forEach(function (input) {
-        input.addEventListener("input", function () {
-          if (this.checkValidity()) {
-            document.getElementById(this.id + "Error").style.display = "none";
-          } else {
-            document.getElementById(this.id + "Error").style.display = "block";
-          }
-        });
-      });
+            if (validCredentials) {
+              alert(
+                "Login bem-sucedido! Redirecionando para a página de busca."
+              );
+              window.location.href = "search.html";
+            } else {
+              alert(
+                "Credenciais inválidas. Por favor, verifique seu email e senha."
+              );
+            }
+          });
+        }
+      };
     </script>
   </body>
 </html>

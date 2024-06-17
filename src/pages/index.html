@@ -14,27 +14,41 @@
     <script src="/projeto-worldpackers/src/assets/style/styles.css"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
     <script src="/projeto-worldpackers/src/assets/main/tailwind.config.js"></script>
+    <link
+      rel="shortcut icon"
+      type="imagex/png"
+      href="/projeto-worldpackers/src/assets/img/icon.ico"
+    />
   </head>
-  <body>
+  <style>
+    .bg-body {
+  background-color: #01585D;
+}
+
+  </style>
+  <body class = "bg-body">
+    
     <div class="bg-background bg-no-repeat bg-cover bg-top h-screen relative">
-      <header>
-        <nav class="bg-chalk pl-6 py-2">
+      <header class="bg-chalk pl-6 py-2">
+        <nav class>
           <div class="flex items-center justify-between">
-            <img
-              src="/projeto-worldpackers/src/assets/img/seashellther.png"
-              class="h-8"
-              alt="Seashellter Logo"
-            />
+            <a href="/projeto-worldpackers/src/pages/index.html">
+              <img
+                src="/projeto-worldpackers/src/assets/img/seashellther.png"
+                class="h-8"
+                alt="Seashellter Logo"
+              />
+            </a>
             <div
               class="hidden md:flex md:flex-grow md:justify-center md:items-center text-gray text-sm"
             >
               <ul class="flex space-x-8">
-                <li><a href="#" class="hover:text-ocre-light">Ajuda</a></li>
+                <li><a href="/projeto-worldpackers/src/pages/404.html" class="hover:text-ocre-light">Ajuda</a></li>
                 <li>
-                  <a href="#" class="hover:text-ocre-light">Como funciona</a>
+                  <a href="/projeto-worldpackers/src/pages/404.html" class="hover:text-ocre-light">Como funciona</a>
                 </li>
                 <li>
-                  <a href="#" class="hover:text-ocre-light"
+                  <a href="/projeto-worldpackers/src/pages/404.html" class="hover:text-ocre-light"
                     >Seja um Anfitriao</a
                   >
                 </li>
@@ -42,10 +56,10 @@
               <button
                 class="bg-blue-100 hover:bg-blue-200 text-gray font-montserrat py-1 px-2 rounded ml-4"
               >
-                <a class="hover:text-gray" href="#">Registre-se</a>
+                <a class="hover:text-gray" href="/projeto-worldpackers/src/pages/login.html">Registre-se</a>
               </button>
             </div>
-            <div class="md9-0i:hidden">
+            <div>
               <button
                 id="menu-btn"
                 class="text-gray hover:text-ocre-light focus:outline-none"
@@ -107,20 +121,63 @@
           </div>
         </nav>
       </header>
-
-      <section class="relative h-screen">
-        <h2
-          class="flex justify-center pt-50 text-blue-100 font-bold font-oswald text-5xl drop-shadow-md z-10 absolute top-0 left-0 right-0"
-        >
+      <section class="bg-background h-screen flex flex-col justify-between overflow-hidden bg-blue-100 relative">
+        <h2 class="text-center pt-32 text-blue-100 font-bold font-oswald text-5xl drop-shadow-md z-10">
           Viaje, colabore e impacte.
         </h2>
-        <img
-          src="/projeto-worldpackers/src/assets/img/sea_wb.png"
-          class="parllaximg1 z-40 h-auto w-full object-cover bottom-0"
-        />
+
+          <h3 class="text-center pt-5 h-2/3 text-chalk font-semibold font-montserrat text-m drop-shadow-md z-10">
+            Segurança, Experiências Transformadoras e Impacto Positivo <br> no Mundo: Viaje como Voluntário e Transforme sua Jornada
+          </h3>
+
+              
+        <div class="flex-grow flex items-end justify-center absolute inset-0">
+          <img
+            src="/projeto-worldpackers/src/assets/img/sea_wb.png"
+            class="w-full h-full object-cover"
+            alt="Imagem de fundo"
+            id="parallax-img"
+          />
+        </div>
+      </section>
+      
+      
+      
+      
+      
+      <section class="bg-blue-100 h-screen flex items-top justify-center pt-20">
+        <div class="container mx-auto text-center">
+          <h2 class="text-3xl font-bold font-oswald text-ocre-light mb-8">Como Funciona</h2>
+          <p class="text-m text-gray font-montserrat pb-5">
+            Seashellter é muito mais do que um simples website; é um portal que nasceu do desejo ardente de explorar o mundo de maneira econômica e sustentável. A ideia central é criar uma plataforma onde economia e a vontade de conhecer novos lugares se encontram.
+          </p>
+          <p class="text-m text-gray font-montserrat pb-5">
+            Imagine poder viajar para destinos incríveis ao redor do globo sem que isso pese no bolso, enquanto contribui para um estilo de vida mais sustentável. Seashellter torna isso possível ao oferecer uma plataforma segura e acolhedora, onde todos são bem-vindos para se candidatar tanto como anfitrião quanto como convidado.
+          </p>
+          <p class="text-m text-gray font-montserrat pb-5">
+            O diferencial do Seashellter está na oportunidade única que oferece aos convidados que possuem certificações oficiais como PADI e ADS. Estes podem trocar suas habilidades especializadas, como mergulho, por acomodações em diversos locais ao redor do mundo. Imagine explorar recifes de coral na Austrália, naufrágios no Caribe ou a vida marinha exuberante nas ilhas da Indonésia, tudo isso em troca de compartilhar suas habilidades com anfitriões que abrem suas portas e corações para recebê-los.
+          </p>
+          <p class="text-m text-gray font-montserrat">
+            Seashellter não é apenas uma plataforma de hospedagem; é uma comunidade que valoriza a troca de experiências autênticas e o espírito de descoberta. Junte-se a nós e transforme seu amor por viajar em uma jornada cheia de novas amizades, aprendizados e momentos inesquecíveis. Vamos explorar o mundo juntos, de uma forma que seja boa para o planeta e para o seu bolso. Bora viajar! 🐚🌊
+          </p>
+
+          <button
+                  class="bg-chalk hover:bg-blue-200 text-gray font-montserrat mt-10 py-2 px-3 rounded"
+                  id="btnEntrar"
+                >
+                Comece já
+         </button>
+        </div>
       </section>
     </div>
-    <script>
+  </body>
+  <script>
+     
+      let btnEntrar = document.getElementById('btnEntrar');
+
+      btnEntrar.addEventListener('click', function() {
+        window.location.href = '/projeto-worldpackers/src/pages/login.html';
+      });
       document
         .getElementById("menu-btn")
         .addEventListener("click", function () {
@@ -135,12 +192,14 @@
           offcanvasMenu.classList.add("hidden");
         });
 
-      let image = document.getElementsByClassName("parllaximg1");
-      new simpleParallax(image, {
-        orientation: "up",
-        delay: 2.0,
-        transition: "cubic-bezier(0,0,0,1)",
-      });
+        document.addEventListener("DOMContentLoaded", function () {
+    let image = document.getElementById("parallax-img");
+    new simpleParallax(image, {
+      orientation: "up",
+      delay: 5.0,
+      transition: "cubic-bezier(0,0,0,1)",
+    });
+  });
     </script>
   </body>
 </html>

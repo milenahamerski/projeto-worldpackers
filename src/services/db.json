@@ -1,49 +1,79 @@
 {
   "posts": [
     {
+      "certif": "PADI",
       "name": "Phuket",
       "id": "00323cd3-09e5-491d-aff0-aa732eb1453c",
       "language": "Inglês, Tailandês",
-      "image": "https://images.unsplash.com/photo-1494949360228-4e9bde560065?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "image": "https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "text": "Junte-se à nossa equipe na deslumbrante Tommy's Dive Center em Phuket, Tailândia! Procuramos um instrutor de mergulho apaixonado e experiente para liderar nossos mergulhadores em aventuras subaquáticas inesquecíveis. Com águas cristalinas, recifes coloridos e uma fauna marinha diversificada, você terá o cenário perfeito para compartilhar sua paixão pelo oceano. Se você é certificado, entusiasta e adora ensinar, candidate-se agora e mergulhe conosco em uma jornada emocionante sob as ondas da Tailândia!",
-      "meal": "1 refeição inclusa",
-      "region": "asia",
+      "meal": "1 refeição inclusa ao dia",
+      "region": "Ásia",
       "title": "Instrutor de Mergulho em Phuket: Aventura Subaquática na Tommy's Dive Center"
     },
     {
+      "certif": "PADI",
       "name": "Rio de Janeiro",
       "id": "0007a615-c0c7-44a4-95c9-b291257207b1",
       "language": "Inglês, Português, Espanhol",
       "image": "https://images.unsplash.com/photo-1558732314-f2ee01b9ee51?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "text": "Desbrave as profundezas do Rio de Janeiro como instrutor de mergulho no Maritimo Dive! Embarque nesta aventura única pelas águas misteriosas da Cidade Maravilhosa, onde cada mergulho revela um novo mundo subaquático repleto de corais vibrantes e vida marinha exótica. Se você é um entusiasta do oceano, apaixonado por compartilhar conhecimento e possui uma certificação em mergulho, esta é a sua oportunidade de se tornar parte de nossa equipe. Junte-se a nós e mergulhe de cabeça nessa jornada fascinante rumo ao desconhecido nas águas cristalinas do Rio de Janeiro!",
-      "meal": "2 refeições inclusas",
-      "region": "america",
+      "meal": "2 refeições inclusas ao dia",
+      "region": "América",
       "title": "Vaga para Instrutor de Mergulho: Explore o Rio de Janeiro com o Maritimo Dive"
     },
     {
+      "certif": "CMAS",
       "name": "Cartagena",
       "id": "18627237-4d17-44fb-8611-42560d15c340",
       "language": "Inglês, Espanhol",
-      "image": "https://images.unsplash.com/photo-1601993396092-056704c5269b?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "image": "https://images.unsplash.com/photo-1534035265253-afe22046ba98?q=80&w=1430&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "text": "Desperte sua paixão pelo oceano e embarque em uma aventura única como instrutor de mergulho em Cartagena, Colômbia. Junte-se à nossa equipe no coração deste paraíso caribenho, onde as águas turquesas e os recifes coloridos aguardam para serem explorados. Se você é um instrutor certificado em busca de um ambiente dinâmico e acolhedor, onde possa compartilhar seu amor pelo mergulho, esta é a sua oportunidade. Venha fazer parte de algo especial, onde cada mergulho é uma nova descoberta e cada dia é uma aventura emocionante sob as ondas!",
-      "meal": "1 refeição inclusa",
-      "region": "america",
+      "meal": "1 refeição inclusa ao dia",
+      "region": "América",
       "title": "Transforme seu Amor pelo Mergulho em Aventura: Seja Instrutor em Cartagena!"
-    }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
     },
     {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
+      "certif": "PADI",
+      "name": "Australia",
+      "id": "0bd2c245-3779-43f9-8794-4006eda54845",
+      "language": "Inglês",
+      "image": "https://plus.unsplash.com/premium_photo-1671496450438-6a9c90ab87a0?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "text": "Venha se juntar à nossa equipe como instrutor certificado PADI em Gold Coast, Austrália. Situada nas águas cristalinas do Oceano Pacífico, Gold Coast oferece um cenário perfeito para explorar recifes vibrantes e vida marinha exuberante.Como membro do nosso time, você não só terá a oportunidade de ensinar e compartilhar seu conhecimento com entusiasmados mergulhadores, mas também desfrutará de benefícios exclusivos. Oferecemos 3 refeições diárias gratuitas para manter sua energia alta enquanto você se aventura nas profundezas. Além disso, você poderá participar de atividades rejuvenescedoras como sessões diárias de ioga para relaxar sua mente e aulas de surf para aproveitar as ondas da famosa Gold Coast.",
+      "meal": "3 refeições inclusas ao dia",
+      "region": "Oceania",
+      "title": "Explore as Profundezas de Gold Coast: Seja Instrutor de Mergulho com Benefícios Exclusivos!"
+    },
+    {
+      "certif": "PADI",
+      "name": "Mônaco",
+      "id": "a00a3c6f-b12a-4843-99d5-c078ae6e2907",
+      "language": "Inglês,Francês,Italiano",
+      "image": "https://images.unsplash.com/photo-1562281302-809108fd533c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "text": "Transforme sua paixão pelo ensino de mergulho em uma experiência luxuosa a bordo de um superyacht em Mônaco! Estamos procurando um instrutor certificado PADI para se juntar à nossa equipe exclusiva e oferecer treinamento personalizado em um dos destinos mais glamorosos do mundo. Esta é uma oportunidade incomparável para mergulhar em um estilo de vida sofisticado, compartilhar sua paixão pelo mergulho em um ambiente exclusivo e aproveitar ao máximo suas habilidades como instrutor PADI. Venha fazer parte de nossa equipe e transforme sua carreira em uma experiência inesquecível no coração do Mediterrâneo!",
+      "meal": "3 refeições inclusas ao dia",
+      "region": "Europa",
+      "title": "Seja Instrutor PADI em um Superyacht em Mônaco!"
+    },
+    {
+      "certif": "ADS",
+      "name": "Cidade do Cabo",
+      "id": "0960b56d-4208-4aef-b140-250e5ddf6c50",
+      "language": "Inglês,Africâner",
+      "image": "https://images.unsplash.com/photo-1496497243327-9dccd845c35f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "text": "Junte-se a nós em uma jornada de aprendizado e aventura na Cidade do Cabo, África do Sul! Estamos em busca de mergulhadores experientes em interação com tubarões e treinamento de primeiros socorros para se certificarem como ADS (Assistant Dive Supervisor) em nosso hostel multicultural e cheio de vida.Não perca a chance de mergulhar em águas emocionantes e aprender com profissionais qualificados em um dos destinos mais deslumbrantes do mundo. ",
+      "meal": "1 refeição inclusa ao dia",
+      "region": "África",
+      "title": "Precisamos de certificação ADS na Cidade do Cabo em um Hostel Vibrante!"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+
+  "credentials": [
+    {
+      "name": "Teste",
+      "email": "Teste@email.com",
+      "password": "Teste@123",
+      "dob": "30/09/1999"
+    }
+  ]
 }
