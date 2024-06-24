@@ -6,6 +6,8 @@ O frontend da aplicação foi desenvolvido utilizando HTML, CSS com o framework 
 
 ## Endereço de Deploy - GitHub Pages
 
+https://milenahamerski.github.io/projeto-worldpackers/
+
 ## Protótipo
 
 https://www.figma.com/file/MhsajnIrxQxhBylrjOXly6/Untitled?type=design&node-id=6%3A2&mode=design&t=0sCZKs7R3C5qe6Q9-1
