@@ -40,13 +40,31 @@
               class="hidden md:flex md:flex-grow md:justify-center md:items-center text-gray text-sm"
             >
               <ul class="flex space-x-8">
-                <li><a href="#" class="hover:text-ocre-light">Ajuda</a></li>
-                <li><a href="#" class="hover:text-ocre-light">Vagas</a></li>
                 <li>
-                  <a href="#" class="hover:text-ocre-light">Como funciona</a>
+                  <a
+                    href="/projeto-worldpackers/src/pages/404.html"
+                    class="hover:text-ocre-light"
+                    >Ajuda</a
+                  >
                 </li>
                 <li>
-                  <a href="#" class="hover:text-ocre-light"
+                  <a
+                    href="/projeto-worldpackers/src/pages/404.html"
+                    class="hover:text-ocre-light"
+                    >Vagas</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/projeto-worldpackers/src/pages/404.html"
+                    class="hover:text-ocre-light"
+                    >Como funciona</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/projeto-worldpackers/src/pages/404.html"
+                    class="hover:text-ocre-light"
                     >Seja um Anfitriao</a
                   >
                 </li>
@@ -135,10 +153,34 @@
             <ul
               class="flex flex-col items-center text-montserrat text-chalk mt-10 space-y-4"
             >
-              <li><a href="#" class="hover:text-gray">Ajuda</a></li>
-              <li><a href="#" class="hover:text-gray">Vagas</a></li>
-              <li><a href="#" class="hover:text-gray">Como funciona</a></li>
-              <li><a href="#" class="hover:text-gray">Seja um anfitriao</a></li>
+              <li>
+                <a
+                  href="/projeto-worldpackers/src/pages/404.html"
+                  class="hover:text-gray"
+                  >Ajuda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/projeto-worldpackers/src/pages/404.html"
+                  class="hover:text-gray"
+                  >Vagas</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/projeto-worldpackers/src/pages/404.html"
+                  class="hover:text-gray"
+                  >Como funciona</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/projeto-worldpackers/src/pages/404.html"
+                  class="hover:text-gray"
+                  >Seja um anfitriao</a
+                >
+              </li>
               <li>
                 <a href="#" id="todos" class="hover:text-ocre-light">Todos</a>
               </li>
@@ -328,18 +370,21 @@
                   : post.text;
 
               card.innerHTML = `
-                <div class="border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden m-3 hover:bg-ocre-light flex max-h-52" id="${id}">
-                  <div class="w-1/3 h-full overflow-hidden">
-                    <img class="object-cover" src="${post.image}" alt="blog">
-                  </div>
-                  <div class="p-6 w-2/3 flex flex-col justify-between">
-                    <div>
-                      <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">${post.certif} &bull; ${post.name} &bull; ${post.region}</h2>
-                      <h1 class="title-font text-lg font-medium text-gray-900 mb-3">${post.title}</h1>
-                      <p class="leading-relaxed mb-1 text-sm">${displayText}</p>
+                     <div class="border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden m-3 hover:bg-ocre-light">
+                    <div class="md:flex md:flex-row">
+                      <div class="md:w-1/3 h-auto md:h-full overflow-hidden">
+                        <img class="object-cover w-full h-full" src="${post.image}" alt="Imagem do post">
+                      </div>
+                      <div class="md:w-2/3 p-6 flex flex-col justify-between">
+                        <div>
+                          <h2 class="text-xs md:text-sm title-font font-medium text-gray-400 mb-1">${post.certif} &bull; ${post.name} &bull; ${post.region}</h2>
+                          <h1 class="text-lg md:text-xl font-medium text-gray-900 mb-3">${post.title}</h1>
+                          <p class="text-sm md:text-base leading-relaxed mb-1">${displayText}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>`;
+                  `;
 
               card.addEventListener("click", function () {
                 window.location.href = `/projeto-worldpackers/src/pages/vaga.html?id=${post.id}`;

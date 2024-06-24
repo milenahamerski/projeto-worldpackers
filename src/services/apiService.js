@@ -2,16 +2,16 @@ import { API_KEY } from "../assets/main/config.js";
 
 export async function fetchDataAndRender(id) {
   try {
-    const response = await fetch("/projeto-worldpackers/src/services/db.json");
+    const response = await fetch("http://localhost:3000/posts");
 
     if (!response.ok) {
       throw new Error(`Failed to load JSON data: ${response.status}`);
     }
     const dbData = await response.json();
 
-    const post = dbData.posts.find((item) => item.id === id);
+    const post = dbData.find((item) => item.id === id);
     if (!post) {
-      console.error(`Id ${id} nao existe em db.json`);
+      console.error(`Id ${id} não existe em db.json`);
       return;
     }
 
@@ -166,4 +166,23 @@ function renderData(post, response) {
       console.log("Post unliked!");
     }
   });
+}
+
+export async function verificarCredenciais(email, password) {
+  try {
+    const response = await fetch("http://localhost:3000/credentials");
+    if (!response.ok) {
+      throw new Error("Erro ao buscar credenciais do servidor");
+    }
+
+    const credentials = await response.json();
+    const user = credentials.find(
+      (cred) => cred.email === email && cred.password === password
+    );
+
+    return user ? true : false;
+  } catch (error) {
+    console.error("Erro ao verificar credenciais:", error);
+    return false;
+  }
 }

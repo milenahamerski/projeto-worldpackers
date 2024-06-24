@@ -4,7 +4,11 @@
   "description": "Projeto - Desenvolvimento de Páginas Web com Framework e CSS",
   "main": "index.js",
   "scripts": {
-    "start:json-server": "json-server --watch projeto-worldpackers/src/services/db.json --port 3000"
+    "start": "concurrently \"npm run start:json-server\" \"npm run start:web-server\" \"npm run start:api-service\"",
+    "start:json-server": "json-server --watch projeto-worldpackers/src/services/db.json --port 3000",
+    "start:web-server": "node seu-servidor-web.js",
+    "start:api-service": "node projeto-worldpackers/src/services/apiService.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

@@ -70,10 +70,8 @@
 
   "credentials": [
     {
-      "name": "Teste",
-      "email": "Teste@email.com",
-      "password": "Teste@123",
-      "dob": "30/09/1999"
+      "email": "teste@email.com",
+      "password": "Teste@123"
     }
   ]
 }

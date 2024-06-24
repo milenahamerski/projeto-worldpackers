@@ -11,9 +11,14 @@
       type="image/x-icon"
       href="/projeto-worldpackers/src/assets/img/icon.ico"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="/projeto-worldpackers/src/assets/style/styles.css"
     />
     <title>Cadastro</title>
     <style>
@@ -141,23 +146,6 @@
         </div>
         <form id="registrationForm" class="space-y-3" novalidate>
           <div>
-            <label for="name" class="block text-sm font-montserrat text-chalk"
-              >Nome</label
-            >
-            <input
-              type="text"
-              id="name"
-              class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              placeholder="Nome"
-              required
-              pattern="[A-Za-z\s]{3,}"
-            />
-            <span class="text-red-500 text-xs hidden" id="nameError"
-              >Nome deve conter pelo menos 3 letras e apenas caracteres
-              alfabéticos.</span
-            >
-          </div>
-          <div>
             <label for="email" class="block text-sm font-montserrat text-chalk"
               >E-mail</label
             >
@@ -198,22 +186,6 @@
               </ul>
             </span>
           </div>
-          <div>
-            <label for="dob" class="block text-sm font-montserrat text-chalk"
-              >Data de Nascimento</label
-            >
-            <input
-              type="date"
-              id="dob"
-              class="mt-1 block w-full px-3 py-2 border border-chalk text-chalk rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              required
-              min="1900-01-01"
-              max="2023-12-31"
-            />
-            <span class="text-red-500 text-xs hidden" id="dobError"
-              >Por favor, insira uma data de nascimento válida.</span
-            >
-          </div>
           <div class="flex items-center">
             <input
               type="checkbox"
@@ -227,7 +199,7 @@
               >Esqueceu sua senha?</a
             >
           </div>
-          <div class="flex justify-between">
+          <div class="flex justify-between m-5">
             <button
               type="submit"
               class="bg-ocre-light text-white px-2 py-1 rounded-md shadow hover:bg-blue-100 text-sm"
@@ -248,66 +220,85 @@
     </div>
     <script src="/projeto-worldpackers/src/assets/main/tailwind.config.js"></script>
     <script>
-      function clearFormAndLocalStorage() {
-        document.getElementById("registrationForm").reset();
-        localStorage.removeItem("formData");
-        document.getElementById("formDataContainer").innerHTML = "";
-      }
-
-      // Função assíncrona para verificar as credenciais de login
-      async function verifyCredentials(email, password) {
-        try {
-          const response = await fetch(
-            "/projeto-worldpackers/src/services/db.json"
-          );
-          const data = await response.json();
-
-          const credentials = data.credentials;
-
-          const validCredentials = credentials.some(
-            (cred) =>
-              cred.email.toLowerCase() === email.toLowerCase() &&
-              cred.password === password
-          );
-
-          return validCredentials;
-        } catch (error) {
-          console.error("Erro ao verificar credenciais:", error);
-          return false;
-        }
-      }
-
-      window.onload = function () {
-        let clearButton = document.getElementById("clearButton");
-        if (clearButton) {
-          clearButton.addEventListener("click", function () {
-            clearFormAndLocalStorage();
-          });
+      $(document).ready(function () {
+        function clearFormAndLocalStorage() {
+          $("#registrationForm")[0].reset();
+          localStorage.removeItem("formData");
+          $("#formDataContainer").empty();
+          $("#email").removeClass("invalid valid");
+          $("#password").removeClass("invalid valid");
         }
 
-        let registrationForm = document.getElementById("registrationForm");
-        if (registrationForm) {
-          registrationForm.addEventListener("submit", async function (event) {
-            event.preventDefault();
+        $("#clearButton").on("click", function () {
+          clearFormAndLocalStorage();
+        });
 
-            let email = document.getElementById("email").value;
-            let password = document.getElementById("password").value;
+        $("#registrationForm").on("submit", async function (event) {
+          event.preventDefault();
 
-            const validCredentials = await verifyCredentials(email, password);
+          let email = $("#email").val();
+          let password = $("#password").val();
+
+          async function verificarCredenciais(email, password) {
+            try {
+              const response = await fetch("http://localhost:3000/credentials");
+              if (!response.ok) {
+                throw new Error("Erro ao buscar credenciais do servidor");
+              }
+
+              const credentials = await response.json();
+              const user = credentials.find(
+                (cred) => cred.email === email && cred.password === password
+              );
+
+              return user ? true : false;
+            } catch (error) {
+              console.error("Erro ao verificar credenciais:", error);
+              return false;
+            }
+          }
+
+          localStorage.setItem("formData", JSON.stringify({ email, password }));
+
+          try {
+            const validCredentials = await verificarCredenciais(
+              email,
+              password
+            );
 
             if (validCredentials) {
               alert(
                 "Login bem-sucedido! Redirecionando para a página de busca."
               );
-              window.location.href = "search.html";
+              window.location.href =
+                "/projeto-worldpackers/src/pages/search.html";
             } else {
               alert(
                 "Credenciais inválidas. Por favor, verifique seu email e senha."
               );
             }
-          });
-        }
-      };
+          } catch (error) {
+            console.error("Erro ao verificar credenciais:", error);
+            alert("Ocorreu um erro ao verificar as credenciais.");
+          }
+        });
+
+        $("#email").on("input", function () {
+          if (this.validity.valid) {
+            $(this).removeClass("invalid").addClass("valid");
+          } else {
+            $(this).removeClass("valid").addClass("invalid");
+          }
+        });
+
+        $("#password").on("input", function () {
+          if (this.validity.valid) {
+            $(this).removeClass("invalid").addClass("valid");
+          } else {
+            $(this).removeClass("valid").addClass("invalid");
+          }
+        });
+      });
     </script>
   </body>
 </html>
